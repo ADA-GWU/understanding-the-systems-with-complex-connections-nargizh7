@@ -15,7 +15,7 @@ public class Client {
 
 
             // connect to the server by instantiating socket var
-            server = new Socket("localhost", 8080); // connects to the server when it's online to get I/O streams
+            server = new Socket("localhost", 8080); // connect to the server when it's online to get I/O streams
 
 
             // methods for sending and receiving data to and from the server (Java Objects, I/O streams)
@@ -23,7 +23,7 @@ public class Client {
             ObjectInputStream serverInput = new ObjectInputStream(server.getInputStream());
 
 
-            // prompting a user for some input
+            // prompt a user for some input
             while (true) {
                 System.out.print("Enter a number: ");
                 int userInput = Integer.parseInt(consoleInput.nextLine()); // retrieve and parse the input as an integer
