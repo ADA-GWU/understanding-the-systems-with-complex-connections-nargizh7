@@ -5,7 +5,6 @@ import java.io.ObjectOutputStream;
 
 public class Client {
 
-
     public static void main(String[] args) {
         Scanner consoleInput = new Scanner(System.in); // get input from the console
         Socket server; // declare var to hold info about the server (I/O streams)
