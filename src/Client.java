@@ -18,7 +18,7 @@ public class Client {
             server = new Socket("localhost", 8080); // connect to the server when it's online to get I/O streams
 
 
-            // methods for sending and receiving data to and from the server (Java Objects, I/O streams)
+            // methods for sending and receiving data to & from the server (Java Objects, I/O streams)
             ObjectOutputStream serverOutput = new ObjectOutputStream(server.getOutputStream());
             ObjectInputStream serverInput = new ObjectInputStream(server.getInputStream());
 
