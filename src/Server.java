@@ -1,29 +1,41 @@
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Server {
-
-
     public static void main(String[] args) {
         try {
-            // making a way for a client to connect to the server
-            ServerSocket serverSocket = new ServerSocket(8080); // hosting server on port 8080
-            /* waits for the client to connect
-            when it connects -> returns Socket object representing the client 
-            the line is linked to server = new Socket("localhost", 8080); - when this one runs*/
-            Socket client = serverSocket.accept(); // this one returns a client Socket
-
-
-            // setup I/O streams
-            ObjectOutputStream clientOutput = new ObjectOutputStream(client.getOutputStream());
-            ObjectInputStream clientInput = new ObjectInputStream(client.getInputStream());
-
+            ServerSocket serverSocket = new ServerSocket(8080);
 
             while (true) {
-                int clientDataInput = clientInput.readInt(); // reading data as an integer
-                int result = clientDataInput * 2; // multiply the input by 2
+                Socket client = serverSocket.accept();
+                ServerHandler handler = new ServerHandler(client);
+                handler.start();
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR!");
+        }
+    }
+}
+
+class ServerHandler extends Thread {
+    private final Socket clientSocket;
+
+    public ServerHandler(Socket clientSocket) {
+        this.clientSocket = clientSocket;
+    }
+
+    @Override
+    public void run() {
+        try {
+            ObjectOutputStream clientOutput = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream clientInput = new ObjectInputStream(clientSocket.getInputStream());
+
+            while (true) {
+                int clientDataInput = clientInput.readInt(); // read data from the client
+                int result = clientDataInput * 2; 
                 clientOutput.writeInt(result); // send back the result to the client
                 clientOutput.flush(); // flush the output stream to ensure data is sent immediately
             }
@@ -32,3 +44,4 @@ public class Server {
         }
     }
 }
+
