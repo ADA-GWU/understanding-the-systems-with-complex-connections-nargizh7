@@ -2,12 +2,19 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Server {
     public static void main(String[] args) {
+        if (args.length != 1) {
+            System.err.println("Usage: java Server <port>");
+            System.exit(1);
+        }
+
+        int port = Integer.parseInt(args[0]);
+
         try {
-            ServerSocket serverSocket = new ServerSocket(8080);
+            ServerSocket serverSocket = new ServerSocket(port);
 
             while (true) {
                 Socket client = serverSocket.accept();
@@ -15,12 +22,13 @@ public class Server {
                 handler.start();
             }
         } catch (Exception e) {
-            System.out.println("ERROR!");
+            e.printStackTrace();
         }
     }
 }
 
 class ServerHandler extends Thread {
+    private static AtomicInteger counter = new AtomicInteger(0);
     private final Socket clientSocket;
 
     public ServerHandler(Socket clientSocket) {
@@ -35,13 +43,19 @@ class ServerHandler extends Thread {
 
             while (true) {
                 int clientDataInput = clientInput.readInt(); // read data from the client
-                int result = clientDataInput * 2; 
+                int result = clientDataInput * 2;
+                
+                // Print the result on the server terminal
+                System.out.println("Processed request: " + result);
+                
                 clientOutput.writeInt(result); // send back the result to the client
                 clientOutput.flush(); // flush the output stream to ensure data is sent immediately
             }
         } catch (Exception e) {
-            System.out.println("ERROR!");
+            e.printStackTrace();
         }
     }
 }
+
+
 
