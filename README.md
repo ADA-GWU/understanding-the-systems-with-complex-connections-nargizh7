@@ -37,6 +37,7 @@ You can continue to enter numbers, and the client will distribute requests to th
 
 Notes to consider:
 1. Ensure that you have Java installed and properly configured on your system.
-2. The provided instructions assume you are running the client and servers on a single machine ("localhost"). If you intend to run them on different machines, replace "localhost" with the appropriate server addresses in the `Client.java` file.
-3. This is a basic example, and in a real-world scenario, you would need to handle exceptions, implement graceful shutdown procedures, and possibly add more robust error handling.
+2. The provided instructions assume you are running the client and servers on a single machine ("localhost"). 
+   If you intend to run them on different machines, replace "localhost" with the appropriate server addresses in the `Client.java` file.
+
 
