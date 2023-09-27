@@ -13,18 +13,19 @@ Installation:
 3. Enter the "src" directory where the code files are located: cd src
    
 Compilation:
-1. Compile the Client.java file: javac Client.java
-2. Compile the Server.java file: javac Server.java
+Open 4 terminal instances and compile Client.java and Server.java files in each window using:
+javac Client.java
+javac Server.java
 
 Running the Client-Server Application:
-1. In three separate terminal windows, start the server instances on different ports. 
+1. In 3 separate terminal windows, start the server instances on different ports. 
    Example:
-   In the 1st terminal window, run the server on port 12345:  java Server 12345
-   In the 2nd terminal window, run the server on port 23456:  java Server 23456
-   In the 3rd terminal window, run the server on port 34567:  java Server 34567
-2. In a 4th terminal window, run the client, providing the ports of the three servers as command-line arguments.
+   In the 1st terminal window, run the server on port 12345 using:  java Server 12345
+   In the 2nd terminal window, run the server on port 23456 using:  java Server 23456
+   In the 3rd terminal window, run the server on port 34567 using:  java Server 34567
+2. In a 4th terminal window, run the client by providing the ports of the three servers as command-line arguments.
    Example:
-   In the fourth terminal window, run the client with the following command: java Client 12345 23456 34567
+   In the 4th terminal window, run the client using: java Client 12345 23456 34567
 
 Usage:
 Once the client is running, it will prompt you to enter a number. 
@@ -37,6 +38,6 @@ You can continue to enter numbers, and the client will distribute requests to th
 Notes to consider:
 1. Ensure that you have Java installed and properly configured; a Java Development Environment must be set up.
 2. The provided instructions assume you are running the client and servers on a single machine ("localhost"). 
-   If you intend to run them on different machines, replace "localhost" with the appropriate server addresses in the `Client.java` file.
+(If you intend to run them on different machines, replace "localhost" with the appropriate server addresses in the `Client.java` file)
 
 
