@@ -6,12 +6,11 @@ This README provides detailed instructions on how to install, compile, and run t
 The application consists of a client (`Client.java`) and three server instances (`Server.java`) that communicate over a local network. 
 
 Installation:
-1. You have to set up a Java Development Environment.
-2. Clone the application repository to your local machine:
+1. Clone the application repository to your local machine:
    git clone https://github.com/ADA-GWU/understanding-the-systems-with-complex-connections-nargizh7.git
-3. Change your working directory to the project directory:
+2. Change your working directory to the project directory:
    cd understanding-the-systems-with-complex-connections-nargizh7
-4. Enter the "src" directory where the code files are located: cd src
+3. Enter the "src" directory where the code files are located: cd src
    
 Compilation:
 1. Compile the Client.java file: javac Client.java
@@ -36,7 +35,7 @@ You can continue to enter numbers, and the client will distribute requests to th
 
 
 Notes to consider:
-1. Ensure that you have Java installed and properly configured on your system.
+1. Ensure that you have Java installed and properly configured; a Java Development Environment must be set up.
 2. The provided instructions assume you are running the client and servers on a single machine ("localhost"). 
    If you intend to run them on different machines, replace "localhost" with the appropriate server addresses in the `Client.java` file.
 
