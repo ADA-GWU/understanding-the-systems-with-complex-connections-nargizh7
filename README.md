@@ -18,7 +18,7 @@ Installation:
 3. Enter the "src" directory where the code files are located: cd src
    
 Compilation:
-Open 4 terminal instances and compile Client.java and Server.java files in each terminal window using:
+Open 4 terminal instances and compile Client.java and Server.java files in each terminal window using these 2 commands:
 javac Client.java
 javac Server.java
 
